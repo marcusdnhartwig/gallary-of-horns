@@ -1,3 +1,22 @@
+Number and name of feature: __3, clickable imgs, click counter, & css_____________
+
+Estimate of time needed to complete: ___3hrs__
+
+Start time: ___1ish__
+
+Finish time: __6is___
+
+Actual time needed to complete: ____5hrs_
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
