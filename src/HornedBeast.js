@@ -1,37 +1,41 @@
 import React from "react";
-
-
-// import Button from "react-bootstrap/Button";
-//import "./HornedBeast.css";
+import { Button, Card } from "react-bootstrap";
+import "./HornedBeast.css";
 
 class HornedBeast extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       favorites: 0,
+      // favorited: false
     }
   }
   handleFavorites = () => {
     this.setState({
       favorites: this.state.favorites + 1
+      // favorited: true
     });
   };
+  handleShowModal = () => {
+    this.props.openModal(this.props.name);
+  }
 
   render() {
-    console.log(this.state);
+    
     return (
-      <article>
-        <h2>{this.props.title}</h2>
-        <p> Graced with 🥃 - {this.state.favorites} times</p>
-          <img
-            onClick={this.handleFavorites}
-            src={this.props.imgUrl}
-            alt={this.props.description}
-            title={this.props.title}>
-          </img>
+
+      <Card className="hornedBeast">
         
-        <p id="disc">{this.props.description}</p>
-      </article>
+        <Card.Title onClick={this.handleShowModal}> {this.props.title} </Card.Title>
+        <Card.Text> Graced with 🥃 - {this.state.favorites} 'times'</Card.Text>
+        <Card.Img className="HornedImg"
+          onClick={this.handleFavorites}
+          src={this.props.imgUrl}
+          alt={this.props.description}
+          title={this.props.title}>
+        </Card.Img>
+        <Card.Text id="disc">{this.props.description}</Card.Text>
+      </Card>
     )
   }
 }
