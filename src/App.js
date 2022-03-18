@@ -1,47 +1,65 @@
 import React from "react";
-import "./App.css";
 import Header from "./Header.js";
 import Main from "./Main.js";
 import Footer from "./Footer.js";
-import data from "./data.json";
-import "bootstrap/dist/css/bootstrap.min.css";
-import BeastModal from "./BeastModal";
+import Data from "./data.json";
+import "./App.css";
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      testing: '',
+      showModal: false,
+      beast: {},
+      numberOfHornes: Data
       //favorited: false
     }
   }
-  handleChangeState = () => {
+  hideModal = () => {
     this.setState({
-      testing: "Hello from App.js",
-      favorited: true
+      showModal: false,
     });
-    console.log(this.state.testing);
-  }; 
-    
-  
+  }
+   
+  openModal = (beast) => {
+    this.setState({
+      showModal: true,
+      beast,
+    });
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const targetValue = parseInt(e.target.value)
+    let filteredBeasts = Data.filter((beasts) => {
+      switch (targetValue) {
+        case 1:
+        case 2:
+          return beasts.hornes === targetValue;
+        case 3: 
+          return beasts.hornes >= targetValue;
+        default: return true;
+      }
+    });
+    this.setState({numberOfHornes: filteredBeasts});
+  }
   render() {
     return (
       <>
-        <Header />
+        <Header/>
         <Main
-          data={data} 
+          data={Data}
+          openModal={this.openModal}
+          hideModal={this.hideModal}
+          beast={this.state.beast}
+          showModal={this.state.showModal}
+          handleSubmit={this.handleSubmit}
+          numberOfHornes={this.state.numberOfHornes}
         />
-        <Footer />
-        <BeastModal
-          testing={this.handleChangeState}
-        />
-
+        <Footer/>
       </>
-    )
+    );
   }
 }
-
-
-
 export default App;
