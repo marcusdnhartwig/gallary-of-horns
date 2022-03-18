@@ -95,3 +95,6 @@ Estimate of time needed to complete: __d__
 Start time: __d__
 Finish time: __d__
 Actual time needed to complete: __d__
+
+
+>>>>> **NOTE** I am very thankful for Ben. He was a great help for me today (Apr. 17, 2022)

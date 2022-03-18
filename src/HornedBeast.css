@@ -1,3 +1,32 @@
-.hornedBeast {
-  margin: 50px;
+.Card {
+  border: 2px solid rgb(192, 13, 13);
+  border-radius: 0px;
+  padding: 1vw;
+  margin-bottom: 1vw;
+  /* width: 16%; */
+  margin: .4vw;
 }
+
+Form {
+  background-color: aquamarine;
+}
+
+.Card.Title {
+  /* margin: auto; */
+}
+
+.Card.Img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.Card.Text {
+  font-size: 11px;
+  color: blue;
+  /* margin: auto; */
+  display: inline-block;
+  margin-bottom: .5rem;
+  padding-left: 1rem;
+}
+

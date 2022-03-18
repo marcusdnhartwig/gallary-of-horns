@@ -10,32 +10,42 @@ class HornedBeast extends React.Component {
       // favorited: false
     }
   }
-  handleFavorites = () => {
+  favorited = () => {
     this.setState({
       favorites: this.state.favorites + 1
       // favorited: true
     });
   };
-  handleShowModal = () => {
-    this.props.openModal(this.props.name);
+  handleClick = () => {
+    this.favorited();
+    this.props.openModal(this.props.beast);
   }
 
   render() {
-    
     return (
-
-      <Card className="hornedBeast">
-        
-        <Card.Title onClick={this.handleShowModal}> {this.props.title} </Card.Title>
-        <Card.Text> Graced with 🥃 - {this.state.favorites} 'times'</Card.Text>
-        <Card.Img className="HornedImg"
-          onClick={this.handleFavorites}
-          src={this.props.imgUrl}
-          alt={this.props.description}
-          title={this.props.title}>
-        </Card.Img>
-        <Card.Text id="disc">{this.props.description}</Card.Text>
-      </Card>
+      <>
+        <Card className="BeastCard">
+          <Card.Img
+            className="image"
+            varian="top"
+            alt={this.props.title}
+            src={this.props.imgUrl}
+            onClick={this.handleClick}
+          />
+          <Card.Body>
+            <Card.Title>{this.props.title}</Card.Title>
+            <Card.Text>Favored with 🥃 - {this.state.favorites}</Card.Text>
+            <Card.Text>{this.props.description}</Card.Text>
+            <Button
+              variant="primary"
+              className="activate"
+              onClick={this.favorited}
+            >
+              Get this Horned Beast a 🥃!
+            </Button>
+          </Card.Body>
+        </Card>
+      </>
     )
   }
 }
