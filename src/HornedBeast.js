@@ -18,7 +18,7 @@ class HornedBeast extends React.Component {
   };
   handleClick = () => {
     this.favorited();
-    this.props.openModal(this.props.beast);
+    this.props.openModal(this.props.title);
   }
 
   render() {
@@ -34,14 +34,14 @@ class HornedBeast extends React.Component {
           />
           <Card.Body>
             <Card.Title>{this.props.title}</Card.Title>
-            <Card.Text>Favored with 🥃 - {this.state.favorites}</Card.Text>
+            <Card.Text>Favored with {this.state.favorites} 🥃  </Card.Text>
             <Card.Text>{this.props.description}</Card.Text>
             <Button
               variant="primary"
               className="activate"
               onClick={this.favorited}
             >
-              Get this Horned Beast a 🥃!
+              Get this Horned Beast a 🥃  .   !
             </Button>
           </Card.Body>
         </Card>
