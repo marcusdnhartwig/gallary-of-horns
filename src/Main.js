@@ -40,14 +40,14 @@ class Main extends React.Component {
             {this.props.numberOfHornes.map((beast, index) => (
               <Col key={index}>
                 <HornedBeast
-                  beast={beast}
+                  // beast={beast}
                   title={beast.title}
                   name={beast.name}
                   imgUrl={beast.imgUrl}
                   description={beast.description}
                   horns={beast.horns}
-                  key={index}
-                  openModal={this.openModal}
+                  index={index}
+                  openModal={this.props.openModal}
                 />
               </Col>
             ))}

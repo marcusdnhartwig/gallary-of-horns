@@ -1,7 +1,7 @@
 
-/* 
 
-article {
+
+main {
   border: 1px solid red;
   padding: 1vw;
   margin-bottom: 1vw;
@@ -28,4 +28,4 @@ article p {
   color: blue;
   text-decoration: none;
   font-size: 15px;
-} */
+}

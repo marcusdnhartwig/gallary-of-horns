@@ -10,8 +10,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      // data: Data,
       showModal: false,
-      beast: {},
+      beast: Data[0],
       numberOfHornes: Data
       //favorited: false
     }
@@ -21,11 +22,12 @@ class App extends React.Component {
       showModal: false,
     });
   }
-   
-  openModal = (beast) => {
+  
+  openModal = (title) => {
+    const selectedBeast = Data.find((beast) => beast.title === title)
     this.setState({
       showModal: true,
-      beast,
+      beast: selectedBeast
     });
   }
 
@@ -36,9 +38,9 @@ class App extends React.Component {
       switch (targetValue) {
         case 1:
         case 2:
-          return beasts.hornes === targetValue;
+          return beasts.horns === targetValue;
         case 3: 
-          return beasts.hornes >= targetValue;
+          return beasts.horns >= targetValue;
         default: return true;
       }
     });
